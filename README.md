@@ -15,9 +15,15 @@ Data is stored locally in a JSON file, making the project lightweight and easy t
 
 ---
 
-## ⚙️ Current Features
-- Terminal menu system
- *(More features will be added gradually)*
+⚙️ Current Features
+
+Interactive terminal menu system
+Add new students
+View all saved students
+
+🚀 Upcoming Features
+
+Safe exit option
   
 License
 
