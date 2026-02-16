@@ -1,4 +1,19 @@
-print("-"*10 + "Student Evualtion Sytem " + "-" *10)
-print("1. Add Student")
-print("2. View Student")
-print("3. Exit")
+
+while True:
+    print("-"*10 + "Student Evualtion Sytem " + "-" *10)
+    print("1. Add Student")
+    print("2. View Student")
+    print("3. Exit")
+    choice = input("enter ur choice")
+
+    if choice == '1':
+        name = input("enter student name")
+        age = input("enter student age")
+        grade = input("enter student grade")
+        major = input("enter student major")
+        note = input("enter student note")
+
+
+    elif choice == '2':
+        student = [name , age , grade , major , note]
+        print(student)
