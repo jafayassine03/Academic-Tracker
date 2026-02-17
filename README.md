@@ -20,10 +20,12 @@ Data is stored locally in a JSON file, making the project lightweight and easy t
 Interactive terminal menu system
 Add new students
 View all saved students
+Safe exit option
+Json file 
 
 🚀 Upcoming Features
 
-Safe exit option
+add more option and make it easier safer 
   
 License
 
