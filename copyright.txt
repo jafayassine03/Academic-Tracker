@@ -1,3 +1,17 @@
-License
+You are free to:
 
-Totally free to use! Play around with it and make it your own 😄
+✅ Use the code for personal or commercial projects
+
+✅ Modify and adapt it to your needs
+
+✅ Share and distribute freely
+
+With the following conditions:
+
+🖊 Please include attribution to the original author when redistributing or publishing derivative works.
+
+⚠ The software is provided “as is”, without warranty of any kind. The author is not liable for any damages or issues arising from its use.
+
+✨ Summary
+Totally free to use! Play around with it, expand it, and make it your own 😄
+Whether you’re learning Python, experimenting with JSON, or building a bigger student management system, this project is yours to explore and improve.
