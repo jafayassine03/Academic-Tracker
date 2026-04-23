@@ -18,18 +18,29 @@ Strengthen problem-solving skills: Develop your ability to solve real-world prob
 
 ⚙️ Current Features
 
-📋 Interactive Terminal Menu: Simple and clear menu system for navigating through the options.
+📋 Interactive Terminal Menu: Navigate easily through options.
 
-➕ Add New Students: Easily add new students with their information (name, age, grade, major, and notes).
+➕ Add New Students: Store name, age, grade, major, and notes.
 
-👀 View All Saved Students: List all students and their information from the database.
+👀 View All Students: Display all saved student records.
 
-💾 Automatic JSON File Creation: If the academictracker.json file doesn't exist, it gets created automatically.
+✏ Edit Student Information: Update age, grade, major, or notes.
 
-🔐 Safe and Clean Exit System: Ensures that all changes are saved and the program exits cleanly.
+🔍 Search Student by Name: Quickly find a student’s details.
 
-🗂 Local Data Storage: All data is stored in a local file academictracker.json for easy access and portability.
+🗑 Delete Student: Remove a student from the records.
 
+📊 Sort Students by Grade: Rank students by academic performance.
+
+📈 Calculate Average Grade: Compute the average grade across all students.
+
+🏆 Top Student Report: Identify and display the student with the highest grade.
+
+💾 Automatic JSON File Creation: Creates academictracker.json if it doesn’t exist.
+
+🔐 Safe Exit System: Ensures changes are saved before exiting.
+
+🗂 Local Data Storage: All data stored in academictracker.json.
 🛠 Technologies Used
 
 Python 3: The main language for this project.
