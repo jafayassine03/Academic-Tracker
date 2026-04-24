@@ -173,6 +173,23 @@ def top_student():
     print("-" * 30)
 
 
+def lowest_student():
+    if not students:
+        print("⚠ No students found.")
+        return
+
+    worst = min(students.items(), key=lambda x: x[1]['grade'])
+    name, info = worst
+    print("\n📉 Lowest Student Report")
+    print("-" * 30)
+    print(f"Name  : {name}")
+    print(f"Age   : {info['age']}")
+    print(f"Grade : {info['grade']}")
+    print(f"Major : {info['major']}")
+    print(f"Note  : {info['note']}")
+    print("-" * 30)
+
+
 while True:
     print("\n" + "=" * 10 + " Academic Tracker " + "=" * 10)
     print("1. Add Student")
@@ -183,7 +200,8 @@ while True:
     print("6. Sort Students by Grade")
     print("7. Calculate Average Grade")
     print("8. Top Student Report")
-    print("9. Exit")
+    print("9. Lowest Student Report")
+    print("10. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -204,6 +222,8 @@ while True:
     elif choice == "8":
         top_student()
     elif choice == "9":
+        lowest_student()
+    elif choice == "10":
         print("Exiting...")
         break
     else:
