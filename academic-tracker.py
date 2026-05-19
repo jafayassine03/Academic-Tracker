@@ -28,14 +28,14 @@ def add_student():
     name = input("Enter student name: ").strip()
 
     if name in students:
-        print(" Student already exists!")
+        print("Student already exists!")
         return
 
     try:
         age = int(input("Enter student age: "))
         grade = float(input("Enter student grade: "))
     except ValueError:
-        print(" Age must be number and grade must be numeric!")
+        print("Age must be number and grade must be numeric!")
         return
 
     major = input("Enter student major: ")
@@ -49,12 +49,12 @@ def add_student():
     }
 
     save_data(students)
-    print("✅ Student added successfully!")
+    print("Student added successfully!")
 
 
 def view_students():
     if not students:
-        print("⚠ No students found.")
+        print("No students found.")
         return
 
     for name, info in students.items():
@@ -82,26 +82,28 @@ def edit_student():
 
     try:
         choice = int(input("Enter your choice: "))
+
         if choice == 1:
-            age = int(input("Enter new age: "))
-            students[name]["age"] = age
+            students[name]["age"] = int(input("Enter new age: "))
+
         elif choice == 2:
-            grade = float(input("Enter new grade: "))
-            students[name]["grade"] = grade
+            students[name]["grade"] = float(input("Enter new grade: "))
+
         elif choice == 3:
-            major = input("Enter new major: ")
-            students[name]["major"] = major
+            students[name]["major"] = input("Enter new major: ")
+
         elif choice == 4:
-            note = input("Enter new note: ")
-            students[name]["note"] = note
+            students[name]["note"] = input("Enter new note: ")
+
         else:
             print("Invalid choice.")
             return
 
         save_data(students)
-        print(f"✅ {name}'s information updated successfully!")
+        print(f"{name}'s information updated successfully!")
+
     except ValueError:
-        print("Invalid input. Please try again.")
+        print("Invalid input.")
 
 
 def delete_student():
@@ -113,7 +115,8 @@ def delete_student():
 
     del students[name]
     save_data(students)
-    print(f"✅ {name} has been deleted.")
+
+    print(f"{name} has been deleted.")
 
 
 def search_student():
@@ -121,6 +124,7 @@ def search_student():
 
     if name in students:
         info = students[name]
+
         print("-" * 30)
         print(f"Name  : {name}")
         print(f"Age   : {info['age']}")
@@ -128,16 +132,21 @@ def search_student():
         print(f"Major : {info['major']}")
         print(f"Note  : {info['note']}")
         print("-" * 30)
+
     else:
         print("Student not found!")
 
 
 def sort_students_by_grade():
     if not students:
-        print("⚠ No students found.")
+        print("No students found.")
         return
 
-    sorted_students = sorted(students.items(), key=lambda x: x[1]['grade'], reverse=True)
+    sorted_students = sorted(
+        students.items(),
+        key=lambda x: x[1]["grade"],
+        reverse=True
+    )
 
     for name, info in sorted_students:
         print("-" * 30)
@@ -148,22 +157,26 @@ def sort_students_by_grade():
 
 def calculate_average_grade():
     if not students:
-        print("⚠ No students found.")
+        print("No students found.")
         return
 
-    total_grade = sum(student['grade'] for student in students.values())
-    average_grade = total_grade / len(students)
-    print(f"Average Grade: {average_grade:.2f}")
+    total = sum(student["grade"] for student in students.values())
+    average = total / len(students)
+
+    print(f"Average Grade: {average:.2f}")
 
 
 def top_student():
     if not students:
-        print("⚠ No students found.")
+        print("No students found.")
         return
 
-    best = max(students.items(), key=lambda x: x[1]['grade'])
-    name, info = best
-    print("\n🏆 Top Student Report")
+    name, info = max(
+        students.items(),
+        key=lambda x: x[1]["grade"]
+    )
+
+    print("\nTop Student")
     print("-" * 30)
     print(f"Name  : {name}")
     print(f"Age   : {info['age']}")
@@ -175,18 +188,41 @@ def top_student():
 
 def lowest_student():
     if not students:
-        print("⚠ No students found.")
+        print("No students found.")
         return
 
-    worst = min(students.items(), key=lambda x: x[1]['grade'])
-    name, info = worst
-    print("\n📉 Lowest Student Report")
+    name, info = min(
+        students.items(),
+        key=lambda x: x[1]["grade"]
+    )
+
+    print("\nLowest Student")
     print("-" * 30)
     print(f"Name  : {name}")
     print(f"Age   : {info['age']}")
     print(f"Grade : {info['grade']}")
     print(f"Major : {info['major']}")
     print(f"Note  : {info['note']}")
+    print("-" * 30)
+
+
+def student_statistics():
+    if not students:
+        print("No students found.")
+        return
+
+    grades = [student["grade"] for student in students.values()]
+
+    highest = max(grades)
+    lowest = min(grades)
+    average = sum(grades) / len(grades)
+
+    print("\nStudent Statistics")
+    print("-" * 30)
+    print(f"Total Students : {len(students)}")
+    print(f"Highest Grade  : {highest}")
+    print(f"Lowest Grade   : {lowest}")
+    print(f"Average Grade  : {average:.2f}")
     print("-" * 30)
 
 
@@ -201,30 +237,44 @@ while True:
     print("7. Calculate Average Grade")
     print("8. Top Student Report")
     print("9. Lowest Student Report")
-    print("10. Exit")
+    print("10. Student Statistics")
+    print("11. Exit")
 
     choice = input("Enter your choice: ")
 
     if choice == "1":
         add_student()
+
     elif choice == "2":
         view_students()
+
     elif choice == "3":
         edit_student()
+
     elif choice == "4":
         delete_student()
+
     elif choice == "5":
         search_student()
+
     elif choice == "6":
         sort_students_by_grade()
+
     elif choice == "7":
         calculate_average_grade()
+
     elif choice == "8":
         top_student()
+
     elif choice == "9":
         lowest_student()
+
     elif choice == "10":
+        student_statistics()
+
+    elif choice == "11":
         print("Exiting...")
         break
+
     else:
         print("Invalid choice.")
