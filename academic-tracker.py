@@ -226,6 +226,31 @@ def student_statistics():
     print("-" * 30)
 
 
+def grade_status():
+    if not students:
+        print("No students found.")
+        return
+
+    print("\nStudent Grade Status")
+    print("-" * 30)
+
+    for name, info in students.items():
+        grade = info["grade"]
+
+        if grade >= 90:
+            status = "Excellent"
+        elif grade >= 75:
+            status = "Good"
+        elif grade >= 50:
+            status = "Average"
+        else:
+            status = "Fail"
+
+        print(f"{name} -> {status}")
+
+    print("-" * 30)
+
+
 while True:
     print("\n" + "=" * 10 + " Academic Tracker " + "=" * 10)
     print("1. Add Student")
@@ -238,7 +263,8 @@ while True:
     print("8. Top Student Report")
     print("9. Lowest Student Report")
     print("10. Student Statistics")
-    print("11. Exit")
+    print("11. Grade Status")
+    print("12. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -273,6 +299,9 @@ while True:
         student_statistics()
 
     elif choice == "11":
+        grade_status()
+
+    elif choice == "12":
         print("Exiting...")
         break
 
