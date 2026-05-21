@@ -251,6 +251,29 @@ def grade_status():
     print("-" * 30)
 
 
+# New Feature: List Students by Major
+def list_students_by_major():
+    if not students:
+        print("No students found.")
+        return
+
+    majors = {}
+    for name, info in students.items():
+        major = info["major"]
+        if major not in majors:
+            majors[major] = []
+        majors[major].append(name)
+
+    print("\nStudents by Major")
+    print("-" * 30)
+    for major, names in majors.items():
+        print(f"Major: {major}")
+        for n in names:
+            print(f"  - {n}")
+    print("-" * 30)
+
+
+# Main Menu Loop
 while True:
     print("\n" + "=" * 10 + " Academic Tracker " + "=" * 10)
     print("1. Add Student")
@@ -264,46 +287,37 @@ while True:
     print("9. Lowest Student Report")
     print("10. Student Statistics")
     print("11. Grade Status")
+    print("13. List Students by Major")  # NEW FEATURE
     print("12. Exit")
 
     choice = input("Enter your choice: ")
 
     if choice == "1":
         add_student()
-
     elif choice == "2":
         view_students()
-
     elif choice == "3":
         edit_student()
-
     elif choice == "4":
         delete_student()
-
     elif choice == "5":
         search_student()
-
     elif choice == "6":
         sort_students_by_grade()
-
     elif choice == "7":
         calculate_average_grade()
-
     elif choice == "8":
         top_student()
-
     elif choice == "9":
         lowest_student()
-
     elif choice == "10":
         student_statistics()
-
     elif choice == "11":
         grade_status()
-
+    elif choice == "13":
+        list_students_by_major()  # call new feature
     elif choice == "12":
         print("Exiting...")
         break
-
     else:
         print("Invalid choice.")
